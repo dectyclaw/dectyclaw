@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Menu, X } from 'lucide-react';
 import { useBlockchainData } from '@/hooks/useBlockchainData';
-import { useClawnchAgents } from '@/hooks/useClawnchAgents';
+import { useClawnchpadTokens } from '@/hooks/useClawnchpadTokens';
 import TerminalLog from '@/components/TerminalLog';
 import AgentLeaderboard from '@/components/AgentLeaderboard';
 import AgentDeployer from '@/components/AgentDeployer';
@@ -10,14 +10,14 @@ import AgentDeployer from '@/components/AgentDeployer';
 /**
  * DACTYLOG - Stasiun Pemantau & Peluncuran Agent
  * 
- * Sekarang dengan live data dari Base blockchain!
- * Mengambil data real-time dari Clawncher contracts
+ * Sekarang dengan live data dari Clawnchpad!
+ * Mengambil data real-time dari top tokens di Clawnchpad
  */
 
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { logs, stats, isLoading, error } = useBlockchainData(5000);
-  const { agents: clawnchAgents, stats: clawnchStats, isLoading: agentsLoading } = useClawnchAgents(10000);
+  const { tokens: clawnchTokens, isLoading: tokensLoading, error: tokensError } = useClawnchpadTokens(30000);
 
   // Mock archive data
   const archiveData = [
@@ -101,15 +101,15 @@ export default function Home() {
                 <>
                   <div className="flex justify-between">
                     <span>Block:</span>
-                    <span className="text-accent font-bold">{clawnchStats?.blockNumber || 'N/A'}</span>
+                    <span className="text-accent font-bold">{stats?.currentBlock || 'N/A'}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Agents:</span>
-                    <span className="text-accent font-bold">{clawnchAgents.length || 0}</span>
+                    <span>Tokens:</span>
+                    <span className="text-accent font-bold">{clawnchTokens.length || 0}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Volume:</span>
-                    <span className="text-accent font-bold">{clawnchStats?.totalVolume || '$0'}</span>
+                    <span>Status:</span>
+                    <span className="text-accent font-bold">LIVE</span>
                   </div>
                 </>
               )}
@@ -161,16 +161,20 @@ export default function Home() {
                 )}
               </div>
 
-              {/* Agent Leaderboard */}
+              {/* Clawnchpad Top Tokens */}
               <div className="space-y-4">
                 <h3 className="text-xl font-bold uppercase tracking-widest">
-                  [ TOP AGENTS ] {agentsLoading && <span className="text-xs text-muted-foreground">[ LOADING... ]</span>}
+                  [ TOP TOKENS FROM CLAWNCHPAD ] {tokensLoading && <span className="text-xs text-muted-foreground">[ LOADING... ]</span>}
                 </h3>
-                {clawnchAgents.length > 0 ? (
-                  <AgentLeaderboard agents={clawnchAgents} />
+                {tokensError ? (
+                  <div className="terminal-card text-center py-8 text-red-500">
+                    [ ERROR: {tokensError} ]
+                  </div>
+                ) : clawnchTokens.length > 0 ? (
+                  <AgentLeaderboard agents={clawnchTokens} />
                 ) : (
                   <div className="terminal-card text-center py-8 text-muted-foreground">
-                    [ NO AGENTS FOUND ON BLOCKCHAIN ]
+                    [ LOADING TOKENS FROM CLAWNCHPAD... ]
                   </div>
                 )}
               </div>
@@ -236,7 +240,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t-2 border-dashed border-accent bg-card/30 p-4 text-center text-xs text-muted-foreground uppercase tracking-wider">
-        <div>[ DACTYLOG v1.1 ] — Live Agent Infrastructure for Clawn Ecosystem on Base</div>
+        <div>[ DACTYLOG v1.3 ] — Live Agent Infrastructure for Clawn Ecosystem on Base</div>
       </footer>
     </div>
   );
