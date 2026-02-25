@@ -1,5 +1,5 @@
 /**
- * Dacty SDK - Simplified token deployment syntax for DACTYLOG
+ * Dacty SDK - Simplified token deployment syntax for DACTYCLAW
  * Based on Clawn SDK but with simplified syntax for demo purposes
  */
 

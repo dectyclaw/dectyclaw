@@ -1,12 +1,12 @@
 /**
- * Documentation Panel untuk DACTYLOG
+ * Documentation Panel untuk DACTYCLAW
  */
 
 export default function DocsPanel() {
   const docs = [
     {
-      title: 'What is DACTYLOG?',
-      content: 'DACTYLOG is a real-time monitoring and deployment station for AI agents in the Clawn ecosystem. Monitor live token activity on Base blockchain and deploy new agents using Clawncher SDK.',
+      title: 'What is DACTYCLAW?',
+      content: 'DACTYCLAW is a real-time monitoring and deployment station for AI agents in the Clawn ecosystem. Monitor live token activity on Base blockchain and deploy new agents using Clawncher SDK.',
     },
     {
       title: 'Monitor Tab',
@@ -33,7 +33,7 @@ export default function DocsPanel() {
           [ DOCUMENTATION ]
         </h2>
         <p className="text-xs text-muted-foreground uppercase tracking-wider">
-          Learn how to use DACTYLOG
+          Learn how to use DACTYCLAW
         </p>
       </div>
 
@@ -92,7 +92,7 @@ export default function DocsPanel() {
 
       <div className="terminal-card">
         <p className="text-xs text-muted-foreground">
-          [ DACTYLOG v1.3 ] — Real-time agent monitoring & deployment for Clawn ecosystem on Base
+          [ DACTYCLAW v1.3 ] — Real-time agent monitoring & deployment for Clawn ecosystem on Base
         </p>
       </div>
     </div>

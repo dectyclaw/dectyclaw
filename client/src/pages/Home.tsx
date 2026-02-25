@@ -4,11 +4,11 @@ import { useBlockchainData } from '@/hooks/useBlockchainData';
 import { useClawnchpadTokens } from '@/hooks/useClawnchpadTokens';
 import TerminalLog from '@/components/TerminalLog';
 import AgentLeaderboard from '@/components/AgentLeaderboard';
-import CodeEditor from '@/components/CodeEditor';
+import DeployGuide from '@/components/DeployGuide';
 import DocsPanel from '@/components/DocsPanel';
 
 /**
- * DACTYLOG - Stasiun Pemantau & Peluncuran Agent
+ * DACTYCLAW - Stasiun Pemantau & Peluncuran Agent
  * 
  * Sekarang dengan live data dari Clawnchpad!
  * Mengambil data real-time dari top tokens di Clawnchpad
@@ -32,7 +32,7 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="text-2xl font-bold uppercase tracking-widest">
-              [ DACTYLOG ]
+              [ DACTYCLAW ]
             </div>
             <div className="text-xs text-muted-foreground uppercase tracking-wider hidden sm:block">
               {isLoading ? 'Connecting...' : 'Agent Monitor & Deployer'}
@@ -192,16 +192,7 @@ export default function Home() {
           {/* DEPLOY TAB */}
           {activeTab === 'deploy' && (
             <div className="p-4 md:p-6 space-y-6">
-              <div className="space-y-2 mb-6">
-                <h2 className="text-2xl font-bold uppercase tracking-widest">
-                  [ AGENT DEPLOYER ]
-                </h2>
-                <p className="text-xs text-muted-foreground uppercase tracking-wider">
-                  Deploy tokens using Dacty SDK
-                </p>
-              </div>
-
-              <CodeEditor />
+              <DeployGuide />
             </div>
           )}
 
@@ -216,7 +207,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t-2 border-dashed border-accent bg-card/30 p-4 text-center text-xs text-muted-foreground uppercase tracking-wider">
-        <div>[ DACTYLOG v1.4 ] — Live Agent Infrastructure for Clawn Ecosystem on Base</div>
+        <div>[ DACTYCLAW v1.4 ] — Live Agent Infrastructure for Clawn Ecosystem on Base</div>
       </footer>
     </div>
   );
