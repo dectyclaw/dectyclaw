@@ -8,54 +8,33 @@ export default function DactyclawExplorer() {
     <div className="space-y-8">
       {/* Header */}
       <div className="space-y-4">
-        <h2 className="text-3xl font-bold uppercase tracking-widest">
-          [ DACTYCLAW EXPLORER ]
+        <div className="text-sm uppercase tracking-widest font-bold text-accent">
+          EXPLORER
+        </div>
+        <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+          discover all<br />dactyclaw agents
         </h2>
         <p className="text-sm text-muted-foreground">
-          Discover and track all agents and tokens deployed on Dactyclaw
+          Real-time tracking of all agents and tokens deployed on Dactyclaw infrastructure
         </p>
       </div>
 
-      {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="terminal-card space-y-1">
-          <div className="text-xs uppercase tracking-wider font-bold text-accent">
-            Total Agents
-          </div>
-          <div className="text-2xl font-bold">
-            {tokens.length}
-          </div>
+      {/* Quick Stats */}
+      <div className="border-l-2 border-dashed border-accent/30 pl-4 space-y-2">
+        <div className="flex justify-between text-sm">
+          <span className="text-muted-foreground">Total Agents:</span>
+          <span className="text-accent font-bold">{tokens.length}</span>
         </div>
-        <div className="terminal-card space-y-1">
-          <div className="text-xs uppercase tracking-wider font-bold text-accent">
-            Total Volume
-          </div>
-          <div className="text-2xl font-bold">
-            ${(Math.random() * 10000000).toFixed(0)}
-          </div>
-        </div>
-        <div className="terminal-card space-y-1">
-          <div className="text-xs uppercase tracking-wider font-bold text-accent">
-            Avg 24h Change
-          </div>
-          <div className="text-2xl font-bold text-green-400">
-            +{(Math.random() * 50).toFixed(1)}%
-          </div>
-        </div>
-        <div className="terminal-card space-y-1">
-          <div className="text-xs uppercase tracking-wider font-bold text-accent">
-            Status
-          </div>
-          <div className="text-2xl font-bold text-green-400">
-            LIVE
-          </div>
+        <div className="flex justify-between text-sm">
+          <span className="text-muted-foreground">Status:</span>
+          <span className="text-green-400 font-bold">LIVE</span>
         </div>
       </div>
 
       {/* Top Agents */}
-      <div className="terminal-card space-y-3">
+      <div className="space-y-3">
         <div className="text-xs uppercase tracking-wider font-bold text-accent">
-          [ TOP DACTYCLAW AGENTS ]
+          [ TOP AGENTS ]
         </div>
 
         {isLoading ? (
@@ -103,59 +82,9 @@ export default function DactyclawExplorer() {
         )}
       </div>
 
-      {/* Agent Categories */}
-      <div className="terminal-card space-y-3">
-        <div className="text-xs uppercase tracking-wider font-bold text-accent">
-          [ AGENT CATEGORIES ]
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {[
-            { name: 'Trading Bots', count: Math.floor(Math.random() * 50) + 10 },
-            { name: 'Analytics', count: Math.floor(Math.random() * 30) + 5 },
-            { name: 'Governance', count: Math.floor(Math.random() * 20) + 3 },
-            { name: 'DeFi', count: Math.floor(Math.random() * 40) + 8 },
-            { name: 'Gaming', count: Math.floor(Math.random() * 25) + 4 },
-            { name: 'Social', count: Math.floor(Math.random() * 35) + 6 },
-          ].map((cat, idx) => (
-            <div
-              key={idx}
-              className="border border-accent/30 rounded p-3 text-center hover:border-accent/60 transition-colors cursor-pointer"
-            >
-              <div className="text-sm font-bold">{cat.name}</div>
-              <div className="text-2xl font-bold text-accent">{cat.count}</div>
-            </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Recent Launches */}
-      <div className="terminal-card space-y-3">
-        <div className="text-xs uppercase tracking-wider font-bold text-accent">
-          [ RECENT LAUNCHES ]
-        </div>
-        <div className="space-y-2">
-          {[
-            { agent: 'AlphaBot', token: 'ALPHA', time: '2 hours ago', status: 'Active' },
-            { agent: 'DataMind', token: 'DATA', time: '4 hours ago', status: 'Active' },
-            { agent: 'TradeFlow', token: 'FLOW', time: '6 hours ago', status: 'Active' },
-            { agent: 'ChainLink', token: 'CHAIN', time: '8 hours ago', status: 'Active' },
-            { agent: 'SmartAI', token: 'SMART', time: '10 hours ago', status: 'Active' },
-          ].map((launch, idx) => (
-            <div
-              key={idx}
-              className="border border-accent/30 rounded p-3 flex items-center justify-between hover:border-accent/60 transition-colors"
-            >
-              <div>
-                <div className="font-bold text-sm">{launch.agent}</div>
-                <div className="text-xs text-muted-foreground">{launch.token} • {launch.time}</div>
-              </div>
-              <div className="text-xs font-bold text-green-400">
-                {launch.status}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+
+
     </div>
   );
 }
