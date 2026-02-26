@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useAuth } from '@/_core/hooks/useAuth';
 import DeployGuide from '@/components/DeployGuide';
 import DactyclawDocs from '@/components/DactyclawDocs';
 import DactyclawExplorer from '@/components/DactyclawExplorer';
@@ -9,6 +10,10 @@ import DactyclawExplorer from '@/components/DactyclawExplorer';
  */
 
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   const [activeTab, setActiveTab] = useState('deploy');
 
   // Handle hash navigation

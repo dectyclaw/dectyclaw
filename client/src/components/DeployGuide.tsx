@@ -18,7 +18,7 @@ const deploySteps: Step[] = [
     number: '01',
     title: 'Create an Agent',
     description: 'Initialize your AI agent with DACTYCLAW. Your agent gets a name, DNA, wallet, and token.',
-    command: '$ npx dactyclaw-agent-create',
+    command: '$ npx dacty-create',
     details: [
       'Agent receives unique DNA signature',
       'Wallet automatically generated',
@@ -117,19 +117,19 @@ export default function DeployGuide() {
           </div>
           <div className="space-y-2">
             <div className="bg-background/50 border border-accent/30 rounded p-3 font-mono text-sm flex items-center justify-between group hover:border-accent/60 transition-colors">
-              <span className="text-foreground">$ npx dactyclaw-spawner</span>
+              <span className="text-foreground">$ npx dacty-create</span>
               <button
-                onClick={() => handleCopyCommand('npx dactyclaw-spawner')}
+                onClick={() => handleCopyCommand('npx dacty-create')}
                 className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-accent/20 rounded"
               >
                 <Copy size={16} className="text-accent" />
               </button>
             </div>
-            {copiedCommand === 'npx dactyclaw-spawner' && (
+            {copiedCommand === 'npx dacty-create' && (
               <div className="text-xs text-green-400">✓ Copied to clipboard</div>
             )}
-            <div className="text-xs text-muted-foreground">
-              or use the web spawner →
+          <div className="text-xs text-muted-foreground">
+              or use the web spawner below →
             </div>
           </div>
         </div>
