@@ -1,4 +1,4 @@
-import { Copy, ExternalLink, Zap } from 'lucide-react';
+import { Copy, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
 
 interface Step {
@@ -9,35 +9,28 @@ interface Step {
   details?: string[];
 }
 
-interface DeployGuideProps {
-  onNavigate?: (tab: string) => void;
-}
-
 const deploySteps: Step[] = [
   {
     number: '01',
     title: 'Create an Agent',
-    description: 'Initialize your AI agent with DACTYCLAW. Your agent gets a name, DNA, wallet, and private key.',
+    description: 'Initialize your AI agent with DACTYCLAW.',
     command: '$ npx dacty-create',
     details: [
       'Agent receives unique DNA signature',
       'Wallet address automatically generated',
       'Private key securely stored in .env file',
-      'Project structure created with sample code',
-      'Ready for token launch',
+      'Project structure created',
     ],
   },
   {
     number: '02',
     title: 'Launch Token',
-    description: 'Deploy your token on Base network via Clanker. Your private key signs the transaction automatically.',
+    description: 'Deploy your token on Base network via Clanker.',
     command: '$ npx dacty-launch',
     details: [
       'Input token name and symbol',
       'Set total token supply',
-      'Private key signs transaction securely',
-      'Deploy to Base network via Clanker API',
-      'Setup 80/20 fee distribution',
+      'Deploy to Base network',
       'Token immediately tradeable',
     ],
   },
@@ -64,11 +57,11 @@ export default function DeployGuide() {
             become an<br />operator
           </h2>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
-            one command. your agent gets a name, DNA, wallet, and private key. launch your token on Base. 80% of token fees fund your agent. 20% flow back to Dactyclaw.
+            one command. your agent gets a name, DNA, wallet, and private key. launch your token on Base. 80% of token fees fund your agent.
           </p>
         </div>
 
-        {/* Quick Start Command */}
+        {/* Quick Start */}
         <div className="terminal-card space-y-2 mt-6">
           <div className="text-xs uppercase tracking-wider font-bold text-accent">
             [ QUICK START ]
@@ -94,7 +87,7 @@ export default function DeployGuide() {
       <div className="space-y-6">
         {deploySteps.map((step, idx) => (
           <div key={idx} className="space-y-3">
-            {/* Step Number & Title */}
+            {/* Step Header */}
             <div className="flex items-start gap-4">
               <div className="text-2xl font-bold text-accent tracking-widest">
                 {step.number}
@@ -109,10 +102,10 @@ export default function DeployGuide() {
               </div>
             </div>
 
-            {/* Command Box */}
+            {/* Command */}
             {step.command && (
               <div className="ml-16 space-y-2">
-                <div className="terminal-card space-y-2">
+                <div className="terminal-card">
                   <div className="bg-background/50 border border-accent/30 rounded p-3 font-mono text-sm flex items-center justify-between group hover:border-accent/60 transition-colors">
                     <span className="text-foreground">{step.command}</span>
                     <button
@@ -123,7 +116,7 @@ export default function DeployGuide() {
                     </button>
                   </div>
                   {copiedCommand === step.command && (
-                    <div className="text-xs text-green-400">✓ Copied to clipboard</div>
+                    <div className="text-xs text-green-400 mt-2">✓ Copied to clipboard</div>
                   )}
                 </div>
               </div>
@@ -152,55 +145,6 @@ export default function DeployGuide() {
         ))}
       </div>
 
-      {/* Fee Distribution */}
-      <div className="terminal-card space-y-3 mt-8">
-        <div className="text-xs uppercase tracking-wider font-bold text-accent flex items-center gap-2">
-          <Zap size={14} />
-          [ FEE DISTRIBUTION ]
-        </div>
-        <div className="space-y-3 text-sm">
-          <div className="flex items-center justify-between">
-            <span className="text-foreground">Your Agent Wallet</span>
-            <span className="text-accent font-bold">80%</span>
-          </div>
-          <div className="w-full bg-background/50 rounded-full h-2 overflow-hidden">
-            <div className="bg-accent h-full" style={{ width: '80%' }}></div>
-          </div>
-          <div className="flex items-center justify-between">
-            <span className="text-foreground">Dactyclaw</span>
-            <span className="text-accent font-bold">20%</span>
-          </div>
-          <div className="w-full bg-background/50 rounded-full h-2 overflow-hidden">
-            <div className="bg-accent/50 h-full" style={{ width: '20%' }}></div>
-          </div>
-        </div>
-      </div>
-
-      {/* After Launch */}
-      <div className="terminal-card space-y-3 mt-8">
-        <div className="text-xs uppercase tracking-wider font-bold text-accent">
-          [ AFTER LAUNCH ]
-        </div>
-        <div className="space-y-2 text-sm">
-          <div className="flex items-start gap-2">
-            <span className="text-accent">→</span>
-            <span>View your token on <a href="https://clanker.world" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Clanker.world</a></span>
-          </div>
-          <div className="flex items-start gap-2">
-            <span className="text-accent">→</span>
-            <span>Monitor accumulated fees in real-time</span>
-          </div>
-          <div className="flex items-start gap-2">
-            <span className="text-accent">→</span>
-            <span>Withdraw fees directly to your wallet</span>
-          </div>
-          <div className="flex items-start gap-2">
-            <span className="text-accent">→</span>
-            <span>Your agent starts earning immediately</span>
-          </div>
-        </div>
-      </div>
-
       {/* Resources */}
       <div className="terminal-card space-y-3 mt-8">
         <div className="text-xs uppercase tracking-wider font-bold text-accent">
@@ -212,24 +156,15 @@ export default function DeployGuide() {
             className="flex items-center gap-2 text-accent hover:text-accent/80 transition-colors w-full text-left"
           >
             <ExternalLink size={14} />
-            Dactyclaw Documentation
+            Documentation
           </button>
           <button
             onClick={() => window.location.hash = '#explorer'}
             className="flex items-center gap-2 text-accent hover:text-accent/80 transition-colors w-full text-left"
           >
             <ExternalLink size={14} />
-            Dactyclaw Token Explorer
+            Token Explorer
           </button>
-          <a
-            href="https://clanker.gitbook.io/clanker-documentation"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
-          >
-            <ExternalLink size={14} />
-            Clanker API Documentation
-          </a>
           <a
             href="https://github.com/dactyclaw/dactyclaw"
             target="_blank"
@@ -237,7 +172,7 @@ export default function DeployGuide() {
             className="flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
           >
             <ExternalLink size={14} />
-            DACTYCLAW GitHub Repository
+            GitHub Repository
           </a>
         </div>
       </div>
