@@ -2,325 +2,227 @@
 
 > **Agent Monitor & Deployer for Decentralized Infrastructure**
 
-DACTYCLAW is an all-in-one platform for monitoring, managing, and deploying autonomous agents in the blockchain ecosystem. Designed to provide complete control over agent lifecycle with an intuitive and powerful interface.
+DACTYCLAW is an all-in-one platform for creating, deploying, and monitoring autonomous agents in the blockchain ecosystem. Launch your agent and token on Base network in just two commands.
 
 ## 🎯 What is DACTYCLAW?
 
-DACTYCLAW is a skill that enables developers and operators to:
+DACTYCLAW enables you to:
 
-- **Monitor** real-time activity from all deployed agents
-- **Deploy** new agents easily using a step-by-step guide
-- **Explore** the agent and token ecosystem available
-- **Manage** agent parameters and configuration from a single dashboard
+- **Create** autonomous agents with unique DNA and wallet
+- **Launch** tokens on Base network via Clanker
+- **Monitor** agent activity and earnings in real-time
+- **Explore** the agent and token ecosystem
 
-Built with modern technology and designed to provide a seamless user experience for both beginners and experts.
-
-## ✨ Key Features
-
-### 1. **Live Activity Monitor**
-- Real-time tracking of agent activity on blockchain
-- Live feed of token deployments, trades, and burns
-- System status with block height tracking
-- Responsive design for desktop and mobile
-
-### 2. **Agent Deployer**
-- Step-by-step guide for creating and launching agents
-- 6 clear process stages:
-  - Create an Agent
-  - Fund Your Wallet
-  - Generate Token DNA
-  - Launch Token on Uniswap V4
-  - Register On-Chain
-  - Monitor & Manage
-- Copyable commands for each step
-- Minimal ETH requirement: 0.0005 ETH
-
-### 3. **Token Explorer**
-- Discover all available agents and tokens
-- Real-time data from blockchain
-- Filter and search functionality
-- Detailed statistics for each token
-
-### 4. **Documentation Hub**
-- Comprehensive guides and tutorials
-- API documentation
-- Best practices and tips
-- Troubleshooting section
-
-## 🚀 Quick Start
+## ✨ Quick Start
 
 ### Prerequisites
-- Node.js 18+ and pnpm
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- Wallet with minimum 0.0005 ETH on Base network
+- Node.js 18+
+- 0.0005 ETH on Base network (for gas fees)
 
-### Installation
-
+### Create an Agent
 ```bash
-# Clone repository
-git clone https://github.com/dactyclaw/dactyclaw.git
-cd dactyclaw
-
-# Install dependencies
-pnpm install
-
-# Start development server
-pnpm dev
+npx dacty-create
 ```
 
-### Usage
+This will:
+- Generate unique agent DNA
+- Create wallet address
+- Generate private key (stored in .env)
+- Create project structure
 
-1. **Open DACTYCLAW** in your browser
-2. **Select tab** based on your needs:
-   - `[ DEPLOY ]` — Start deploying a new agent
-   - `[ EXPLORER ]` — View available agents
-   - `[ DOCS ]` — Read full documentation
-3. **Follow step-by-step guide** for deployment
-4. **Copy commands** and run in terminal
-5. **Monitor progress** in Live Activity Monitor
-
-## 📋 Deployment Stages
-
-### Stage 01: Create an Agent
+### Launch Token
 ```bash
-$ npx dactyclaw-agent-create
+npx dacty-launch
 ```
-Initialize your AI agent with DACTYCLAW. Your agent will receive:
-- Unique name and DNA
-- Wallet address
-- Token contract
-- Repository
 
-### Stage 02: Fund Your Wallet
-```bash
-$ npx dactyclaw-wallet-fund --amount 0.0005
-```
-Ensure wallet has minimum **0.0005 ETH** on Base network for:
-- Gas fees for deployment
-- Initial liquidity
-- Transaction costs
+This will:
+- Prompt for token name and symbol
+- Deploy token to Base network via Clanker
+- Setup 80/20 fee distribution
+- Make token immediately tradeable
 
-### Stage 03: Generate Token DNA
-```bash
-$ npx dactyclaw-token-dna --agent [agent-id]
-```
-Generate unique DNA for your token:
-- Token parameters
-- Supply configuration
-- Fee structure
-- MEV protection settings
+## 🚀 How It Works
 
-### Stage 04: Launch Token on Uniswap V4
+### Step 1: Create Agent
 ```bash
-$ npx dactyclaw-token-launch --dna [dna-hash]
-```
-Deploy token to Uniswap V4:
-- Creates ERC-20 token
-- Initializes liquidity pool
-- Enables MEV protection
-- Makes token immediately tradeable
+$ npx dacty-create
 
-### Stage 05: Register On-Chain
-```bash
-$ npx dactyclaw-agent-register --token [token-address]
-```
-Register agent and token on blockchain:
-- Appears in DACTYCLAW monitor
-- Listed in token explorer
-- Discoverable by traders
-- 80% of fees fund agent, 20% flow to protocol
+? Agent name: MyAgent
+? Agent type: trading
 
-### Stage 06: Monitor & Manage
-```bash
-$ npx dactyclaw-agent-monitor
+✓ Agent created with DNA: abc123...
+✓ Wallet: 0x...
+✓ Private key saved in .env
 ```
-Track agent activity in real-time:
-- Live trading volume
-- Fee collection status
-- Liquidity management
-- Agent performance metrics
+
+### Step 2: Launch Token
+```bash
+$ npx dacty-launch
+
+? Agent DNA: abc123...
+? Token name: My Token
+? Token symbol: MYTKN
+? Total supply: 1000000000
+
+✓ Token deployed to Base
+✓ Fee distribution configured
+✓ Token address: 0x...
+```
+
+### Step 3: Monitor Earnings
+Visit [Clanker.world](https://clanker.world) to:
+- View your token
+- Monitor trading volume
+- Track accumulated fees
+- Withdraw earnings
+
+## 📋 Fee Distribution
+
+- **80%** → Your Agent Wallet
+- **20%** → Dactyclaw Protocol
+
+Fees are automatically distributed from every trade.
 
 ## 🏗️ Architecture
 
-DACTYCLAW is built with modern architecture:
-
 ```
-┌─────────────────────────────────────┐
-│         DACTYCLAW Frontend          │
-│  (React 19 + Tailwind + Vite)       │
-└──────────────┬──────────────────────┘
+┌──────────────────────────────┐
+│   DACTYCLAW Website          │
+│   (React + Tailwind)         │
+└──────────────┬───────────────┘
                │
-       ┌───────┴────────┐
-       │                │
-┌──────▼──────┐  ┌──────▼──────┐
-│ Public RPC  │  │ Clawnchpad  │
-│ (Base)      │  │ API         │
-└──────┬──────┘  └──────┬──────┘
-       │                │
-       └───────┬────────┘
+        ┌──────┴──────┐
+        │             │
+    ┌───▼──┐     ┌────▼────┐
+    │ CLI  │     │ Backend  │
+    │Tools │     │ API      │
+    └───┬──┘     └────┬─────┘
+        │             │
+        └──────┬──────┘
                │
-       ┌───────▼──────────┐
-       │ Blockchain Data  │
-       │ (Base Network)   │
-       └──────────────────┘
+        ┌──────▼──────────┐
+        │ Base Network    │
+        │ Clanker API     │
+        └─────────────────┘
 ```
 
-### Technology Stack
+## 📦 CLI Tools
 
-- **Frontend:** React 19, TypeScript, Tailwind CSS 4
-- **Build Tool:** Vite 7
-- **State Management:** React Hooks
-- **Data Fetching:** ethers.js, Fetch API
-- **Styling:** Tailwind CSS with custom terminal theme
-- **UI Components:** shadcn/ui
+### dacty-create
+Create a new agent with secure private key generation.
 
-## 🔧 Development
+```bash
+npm install -g dacty-create
+npx dacty-create
+```
+
+**Features:**
+- Interactive prompts
+- Secure private key generation
+- .env file management
+- Project structure creation
+
+[View on npm](https://www.npmjs.com/package/dacty-create)
+
+### dacty-launch
+Launch token on Base network via Clanker.
+
+```bash
+npm install -g dacty-launch
+npx dacty-launch
+```
+
+**Features:**
+- Clanker API integration
+- Private key signing
+- Fee distribution setup
+- Real-time deployment status
+
+[View on npm](https://www.npmjs.com/package/dacty-launch)
+
+## 🌐 Website
+
+Visit the DACTYCLAW website for:
+- **[ DEPLOY ]** — Step-by-step deployment guide
+- **[ EXPLORER ]** — Browse all agents and tokens
+- **[ DOCS ]** — Complete documentation
+
+## 📚 Documentation
+
+### Installation
+```bash
+git clone https://github.com/dactyclaw/dactyclaw.git
+cd dactyclaw
+pnpm install
+pnpm dev
+```
+
+### Development
+```bash
+pnpm dev      # Start dev server
+pnpm build    # Build for production
+pnpm test     # Run tests
+```
 
 ### Project Structure
-
 ```
 dactyclaw/
 ├── client/
 │   ├── src/
-│   │   ├── components/    # Reusable UI components
-│   │   ├── pages/         # Page-level components
-│   │   ├── hooks/         # Custom React hooks
-│   │   ├── lib/           # Utility functions
-│   │   ├── App.tsx        # Main app component
-│   │   ├── main.tsx       # Entry point
-│   │   └── index.css      # Global styles
-│   ├── public/            # Static assets
-│   └── index.html         # HTML template
-├── package.json           # Dependencies
-├── tsconfig.json          # TypeScript config
-├── vite.config.ts         # Vite config
-└── README.md              # This file
+│   │   ├── components/     # UI components
+│   │   ├── pages/          # Page components
+│   │   ├── lib/            # Utilities
+│   │   └── App.tsx         # Main app
+│   └── public/             # Static assets
+├── server/                 # Backend API
+├── drizzle/                # Database schema
+└── package.json
 ```
-
-### Development Commands
-
-```bash
-# Start dev server with hot reload
-pnpm dev
-
-# Build for production
-pnpm build
-
-# Preview production build
-pnpm preview
-
-# Type checking
-pnpm check
-
-# Format code
-pnpm format
-```
-
-## 🎨 Design Philosophy
-
-DACTYCLAW uses **Terminal Aesthetic** inspired by:
-- Basedaemon (clean, minimal interface)
-- Classic terminal UI (monospace, green neon)
-- Modern web standards (responsive, accessible)
-
-**Color Scheme:**
-- Background: `#0a0a0a` (near black)
-- Accent: `#00ff00` (neon green)
-- Text: `#e0e0e0` (light gray)
-- Borders: Dashed green lines
-
-**Typography:**
-- Font: IBM Plex Mono (monospace)
-- Weights: Regular (400), Bold (700)
-- Sizes: Responsive scaling
-
-## 📚 Documentation
-
-Full documentation is available at:
-- **[ DOCS ]** tab in DACTYCLAW
-- `./docs/` folder in repository
-- Inline code comments
-
-### Available Documentation:
-- **INSTALLATION.md** — Setup and configuration
-- **USAGE.md** — Complete usage guide
-- **API.md** — API reference
-- **ARCHITECTURE.md** — Technical deep dive
-- **TROUBLESHOOTING.md** — Common issues & solutions
-
-## 🤝 Contributing
-
-We welcome contributions! Here's how to contribute:
-
-1. **Fork** the repository
-2. **Create feature branch** (`git checkout -b feature/amazing-feature`)
-3. **Commit changes** (`git commit -m 'Add amazing feature'`)
-4. **Push to branch** (`git push origin feature/amazing-feature`)
-5. **Open Pull Request**
-
-### Contribution Guidelines
-- Follow existing code style
-- Add tests for new features
-- Update documentation
-- Keep commits atomic and descriptive
-
-## 🐛 Bug Reports & Features
-
-Found a bug or have a feature idea? Open an issue on GitHub:
-- **Bug Report:** Explain reproduction steps and expected behavior
-- **Feature Request:** Describe use case and benefits
-
-## 📄 License
-
-DACTYCLAW is licensed under the **MIT License** — see `LICENSE` file for details.
-
-## 🙏 Acknowledgments
-
-DACTYCLAW is built with inspiration from:
-- Basedaemon (UI/UX philosophy)
-- Modern blockchain infrastructure
-- Open source community
-
-## 📞 Support
-
-Need help? Contact us:
-- **GitHub Issues:** Bug reports and feature requests
-- **Documentation:** See `/docs` folder
-- **Community:** Join Discord community (link in repo)
 
 ## 🔐 Security
 
-DACTYCLAW is a frontend-only application. All data is fetched from:
-- Public blockchain RPC endpoints
-- Public APIs
-- Browser local storage
+- **Private keys** are stored locally in .env (never on servers)
+- **No authentication required** for deployment
+- **Frontend-only** for agent creation
+- **Blockchain-verified** token deployment
 
-**No private keys or sensitive data are stored on any server.**
+## 🎨 Design
 
-## 🚀 Deployment
+DACTYCLAW uses a **terminal aesthetic** inspired by modern CLI tools:
+- Monospace typography (IBM Plex Mono)
+- Neon green accent (#00ff00)
+- Dark background (#0a0a0a)
+- Minimal, focused interface
 
-### Deploy to Vercel
+## 🤝 Contributing
 
-1. **Fork this repository** on GitHub
-2. **Connect to Vercel:**
-   - Go to https://vercel.com
-   - Click "New Project"
-   - Import your GitHub repository
-   - Vercel will auto-detect settings
-   - Click "Deploy"
+Contributions welcome! Please:
+1. Fork the repository
+2. Create feature branch
+3. Commit changes
+4. Push and open PR
 
-3. **Your site is live!**
-   - Vercel will provide a URL
-   - Custom domain support available
+## 📄 License
 
-### Environment Variables
+MIT License — see LICENSE file
 
-No environment variables required! DACTYCLAW works with public endpoints.
+## 🙏 Acknowledgments
+
+Built with inspiration from:
+- Basedaemon (UI/UX)
+- Clanker (token deployment)
+- Modern blockchain infrastructure
+
+## 📞 Support
+
+- **Issues:** GitHub Issues
+- **Docs:** See /docs folder
+- **Website:** https://dactyclaw.com
 
 ---
 
-**Made with ❤️ for the agent ecosystem**
+**Made for the agent ecosystem**
 
-**Version:** 3.2  
+**Version:** 5.2  
 **Status:** Production Ready ✅  
 **License:** MIT
