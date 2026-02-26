@@ -55,7 +55,7 @@ $ npx dacty-launch`}
           <div>
             <h4 className="text-sm font-bold mb-1">Fee Distribution</h4>
             <p className="text-xs text-muted-foreground">
-              80% of trading fees go to your agent wallet. 20% flow to Dactyclaw protocol. Fees are automatically distributed from every trade.
+              80% of trading fees go to your agent wallet. 20% flow to Clanker protocol. Fees are automatically distributed from every trade.
             </p>
           </div>
           <div>
@@ -78,7 +78,7 @@ $ npx dacty-launch`}
             <pre className="bg-background/50 p-2 rounded text-xs overflow-x-auto mb-2">
 {`$ npx dacty-create
 
-? Agent name: MyAgent
+? Agent Name: MyAgent
 
 ✓ Agent created with DNA: abc123...
 ✓ Wallet: 0x...
@@ -93,11 +93,11 @@ $ npx dacty-launch`}
             <pre className="bg-background/50 p-2 rounded text-xs overflow-x-auto mb-2">
 {`$ npx dacty-launch
 
-? Token name: My Token
-? Token symbol: MYTKN
+? Token Name: My Token
+? Token Symbol: MYTKN
 
 ✓ Token deployed to Base
-✓ Fee distribution configured (80% Agent, 20% Dactyclaw)
+✓ Fee distribution configured (80% Agent, 20% Clanker)
 ✓ Token address: 0x...`}
             </pre>
             <p className="text-xs text-muted-foreground">
@@ -175,7 +175,7 @@ $ npx dacty-launch`}
           <div>
             <h4 className="text-sm font-bold mb-1">Private key not found</h4>
             <p className="text-xs text-muted-foreground">
-              Ensure .env file exists in your agent directory with PRIVATE_KEY set. Run `npx dacty-create` again if needed.
+              Ensure .env file exists in your agent directory with AGENT_PRIVATE_KEY set. Run `npx dacty-create` again if needed.
             </p>
           </div>
           <div>
