@@ -18,8 +18,6 @@ const deploySteps: Step[] = [
     details: [
       'Agent receives unique DNA signature',
       'Wallet address automatically generated',
-      'Private key securely stored in .env file',
-      'Project structure created',
     ],
   },
   {
@@ -29,9 +27,7 @@ const deploySteps: Step[] = [
     command: '$ npx dacty-launch',
     details: [
       'Input token name and symbol',
-      'Set total token supply',
       'Deploy to Base network',
-      'Token immediately tradeable',
     ],
   },
 ];
