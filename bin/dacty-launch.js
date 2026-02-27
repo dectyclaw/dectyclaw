@@ -15,7 +15,9 @@ program
     .action(async (options) => {
         const configPath = path.join(process.cwd(), 'agent.json');
         if (!fs.existsSync(configPath)) {
-            console.error('❌ Error: agent.json not found. Run `npx dacty-create <name>` first.');
+            console.error('❌ Error: agent.json not found. You must create an Agent first!');
+            console.error('\n💡 To create an agent, run this command with your desired Name and Ticker:');
+            console.error('   npx dacty-create "MyAgentName" --ticker "TICKER"');
             process.exit(1);
         }
 
