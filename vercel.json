@@ -1,7 +1,7 @@
 {
-  "buildCommand": "cd client && pnpm build",
-  "outputDirectory": "client/dist",
-  "framework": "react",
+  "buildCommand": "pnpm install && pnpm build",
+  "outputDirectory": "dist",
+  "framework": "vite",
   "env": {
     "VITE_APP_TITLE": "@",
     "VITE_APP_LOGO": "@",
