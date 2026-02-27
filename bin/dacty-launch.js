@@ -99,13 +99,18 @@ program
                     initialMarketCap: "0.2", // 0.2 ETH (Base) minimal initial
                     positions: POOL_POSITIONS.Standard
                 },
-                vault: { percentage: 0, lockupDuration: 604800 },
-                devBuy: { ethAmount: 0.0001 }
+                vault: { percentage: 0, lockupDuration: 604800 }
             };
 
             // Execute the deployment using clanker-sdk v4
             console.log(`[2/3] Calling SDK deploy... (This will spend Base ETH gas)`);
             const deployResult = await clanker.deploy(tokenConfig);
+
+            if (deployResult.error) {
+                console.error(`\n❌ Deployment Reverted: ${deployResult.error.shortMessage || deployResult.error.message || 'Unknown Contract Error'}`);
+                if (deployResult.error.cause) console.error(`   Cause: ${deployResult.error.cause.message || deployResult.error.cause}`);
+                process.exit(1);
+            }
 
             console.log(`[3/3] Broadcasting transaction to Base network...`);
             console.log(`Transaction Hash: ${deployResult.txHash}`);
