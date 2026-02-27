@@ -635,6 +635,200 @@
             color: #00d4ff;
         }
 
+        /* ── Top 5 MCap ── */
+        .top5-section {
+            margin-bottom: 2rem;
+        }
+
+        .top5-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #0099bb;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .top5-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(0, 212, 255, 0.2);
+        }
+
+        .top5-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.75rem;
+        }
+
+        @media (max-width: 1024px) {
+            .top5-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .top5-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .top5-card {
+            background: rgba(0, 212, 255, 0.04);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-top: 3px solid rgba(0, 212, 255, 0.3);
+            padding: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .top5-card:hover {
+            background: rgba(0, 212, 255, 0.08);
+            border-color: rgba(0, 212, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
+        }
+
+        .top5-card.rank-1 {
+            border-top-color: #ffd700;
+            background: rgba(255, 215, 0, 0.04);
+        }
+
+        .top5-card.rank-1:hover {
+            background: rgba(255, 215, 0, 0.08);
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .top5-card.rank-2 {
+            border-top-color: #c0c0c0;
+            background: rgba(192, 192, 192, 0.03);
+        }
+
+        .top5-card.rank-2:hover {
+            background: rgba(192, 192, 192, 0.07);
+        }
+
+        .top5-card.rank-3 {
+            border-top-color: #cd7f32;
+            background: rgba(205, 127, 50, 0.03);
+        }
+
+        .top5-card.rank-3:hover {
+            background: rgba(205, 127, 50, 0.07);
+        }
+
+        .top5-rank {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.4rem;
+        }
+
+        .top5-card.rank-1 .top5-rank {
+            color: #ffd700;
+        }
+
+        .top5-card.rank-2 .top5-rank {
+            color: #c0c0c0;
+        }
+
+        .top5-card.rank-3 .top5-rank {
+            color: #cd7f32;
+        }
+
+        .top5-card.rank-4 .top5-rank,
+        .top5-card.rank-5 .top5-rank {
+            color: #0099bb;
+        }
+
+        .top5-symbol {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #00d4ff;
+            text-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+            margin-bottom: 0.2rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .top5-card.rank-1 .top5-symbol {
+            color: #ffd700;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+        }
+
+        .top5-name {
+            font-size: 0.68rem;
+            color: #0099bb;
+            margin-bottom: 0.6rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .top5-mcap {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #00d4ff;
+            margin-bottom: 0.2rem;
+        }
+
+        .top5-card.rank-1 .top5-mcap {
+            color: #ffd700;
+        }
+
+        .top5-price {
+            font-size: 0.65rem;
+            color: #0099bb;
+            margin-bottom: 0.6rem;
+        }
+
+        .top5-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .top5-links a {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #00d4ff;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .top5-links a:hover {
+            border-bottom-color: #00d4ff;
+            text-shadow: 0 0 6px rgba(0, 212, 255, 0.5);
+        }
+
+        .top5-section-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #0099bb;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .top5-section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(0, 212, 255, 0.2);
+        }
+
         /* ── Footer ── */
         footer {
             border-top: 2px solid #00d4ff;
@@ -797,6 +991,17 @@
                     </div>
                 </div>
 
+                <!-- Top 5 by MCap -->
+                <div class="top5-section">
+                    <div class="top5-label">🏆 Top 5 by Market Cap</div>
+                    <div class="top5-grid" id="top5-container">
+                        <!-- populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Recently Launched -->
+                <div class="top5-section-label">🕐 Recently Launched</div>
+
                 <div class="refresh-bar">
                     <span id="last-updated">Loading...</span>
                     <button onclick="refreshTokens()" id="refresh-btn">↻ Refresh</button>
@@ -832,8 +1037,6 @@
                 </div>
 
                 <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
-                    <a href="https://clanker.world" target="_blank" class="cta-button">Launch on Clanker →</a>
-                    <a href="https://clawn.ch/pad/" target="_blank" class="cta-button">Clawnchpad →</a>
                     <button class="cta-button" onclick="switchTab('docs')">Full Docs →</button>
                 </div>
             </div>
@@ -1011,15 +1214,18 @@
             loadMoreBtn.style.display = 'none';
 
             try {
-                let data;
-                try {
-                    const r = await fetch('/api/tokens');
-                    if (!r.ok) throw new Error('proxy unavailable');
-                    data = await r.json();
-                } catch {
-                    const r = await fetch('https://clawn.ch/api/tokens');
-                    data = await r.json();
-                }
+                let data, topData;
+
+                // Fetch both recent tokens and top tokens in parallel
+                const [recentRes, topRes] = await Promise.all([
+                    fetch('/api/tokens'),
+                    fetch('/api/top-tokens')
+                ]);
+
+                if (!recentRes.ok || !topRes.ok) throw new Error('proxy unavailable');
+
+                data = await recentRes.json();
+                topData = await topRes.json();
 
                 if (data.success && data.tokens) {
                     allTokens = data.tokens;
@@ -1029,6 +1235,9 @@
                     document.getElementById('stat-total').textContent = totalTokens.toLocaleString();
                     document.getElementById('sidebar-tokens').textContent = totalTokens.toLocaleString();
 
+                    // render top 5 from the new endpoint, which has market cap data
+                    const topTokensList = topData.success && topData.tokens ? topData.tokens : allTokens;
+                    renderTop5(topTokensList);
                     renderTokenTable();
                     updateTimestamp();
 
@@ -1046,6 +1255,55 @@
             }
 
             loading.style.display = 'none';
+        }
+
+        function fmtMcap(val) {
+            if (!val || val === null) return 'N/A';
+            const n = parseFloat(val);
+            if (n >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
+            if (n >= 1e6) return '$' + (n / 1e6).toFixed(2) + 'M';
+            if (n >= 1e3) return '$' + (n / 1e3).toFixed(1) + 'K';
+            return '$' + n.toFixed(2);
+        }
+
+        function fmtPrice(val) {
+            if (!val || val === null) return 'N/A';
+            const n = parseFloat(val);
+            if (n < 0.000001) return '$' + n.toExponential(2);
+            if (n < 0.01) return '$' + n.toFixed(6);
+            return '$' + n.toFixed(4);
+        }
+
+        function renderTop5(tokens) {
+            const container = document.getElementById('top5-container');
+            // Sort by marketCap desc, filter nulls first; fallback to all tokens if none have mcap
+            const withMcap = tokens.filter(t => t.marketCap !== null && t.marketCap > 0);
+            const sorted = withMcap.sort((a, b) => b.marketCap - a.marketCap).slice(0, 5);
+
+            // If no mcap data, fallback to top 5 by recency (first 5 in list)
+            const top5 = sorted.length >= 3 ? sorted : tokens.slice(0, 5);
+            const noMcapData = sorted.length < 3;
+
+            const rankEmoji = ['🥇', '🥈', '🥉', '4th', '5th'];
+            let html = '';
+            top5.forEach((t, i) => {
+                const rank = i + 1;
+                const srcClass = t.source === '4claw' ? 'fourclaw' : 'clawncher';
+                html += `
+                <div class="top5-card rank-${rank}">
+                    <div class="top5-rank">${rankEmoji[i]} Rank #${rank}</div>
+                    <div class="top5-symbol" title="${escHtml(t.symbol)}">${escHtml(t.symbol)}</div>
+                    <div class="top5-name" title="${escHtml(t.name)}">${escHtml(t.name)}</div>
+                    <div class="top5-mcap">${noMcapData ? '—' : fmtMcap(t.marketCap)}</div>
+                    <div class="top5-price">${noMcapData ? 'By recency' : fmtPrice(t.priceUsd)}</div>
+                    <div class="top5-links">
+                        <a href="${escHtml(t.clanker_url)}" target="_blank">Clanker</a>
+                        <a href="${escHtml(t.explorer_url)}" target="_blank">BaseScan</a>
+                        ${t.source_url ? `<a href="${escHtml(t.source_url)}" target="_blank">Source</a>` : ''}
+                    </div>
+                </div>`;
+            });
+            container.innerHTML = html || '<div style="color:#0099bb;font-size:0.8rem;">No market cap data available yet.</div>';
         }
 
         function renderTokenTable() {

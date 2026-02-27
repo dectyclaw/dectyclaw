@@ -1,0 +1,32 @@
+{
+  "name": "dactyclaw",
+  "version": "1.0.0",
+  "description": "**Agent Monitor & Deployer for Clawn Ecosystem on Base**",
+  "main": "proxy.js",
+  "bin": {
+    "dacty-create": "bin/dacty-create.js",
+    "dacty-launch": "bin/dacty-launch.js",
+    "dactyclaw": "bin/dacty-create.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dactyclaw/dactyclaw.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dactyclaw/dactyclaw/issues"
+  },
+  "homepage": "https://github.com/dactyclaw/dactyclaw#readme",
+  "dependencies": {
+    "axios": "^1.13.5",
+    "commander": "^14.0.3",
+    "dotenv": "^17.3.1",
+    "ethers": "^6.16.0"
+  }
+}
