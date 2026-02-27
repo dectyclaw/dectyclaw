@@ -6,7 +6,7 @@ const { program } = require('commander');
 const { createPublicClient, createWalletClient, http, formatEther } = require('viem');
 const { privateKeyToAccount } = require('viem/accounts');
 const { base } = require('viem/chains');
-const { Clanker } = require('clanker-sdk');
+const { Clanker } = require('clanker-sdk/v4');
 
 program
     .version('1.0.0')
