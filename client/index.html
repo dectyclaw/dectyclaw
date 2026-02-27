@@ -18,7 +18,7 @@
 
         body {
             font-family: 'Courier Prime', monospace;
-            background-color: #000000;
+            background: linear-gradient(135deg, #000000 0%, #001a00 100%);
             color: #00ff00;
             line-height: 1.6;
             display: flex;
@@ -26,34 +26,37 @@
         }
 
         header {
-            border-bottom: 2px dashed #ff0000;
-            background-color: #000000;
-            padding: 2rem;
-            max-width: 100%;
+            background: linear-gradient(90deg, rgba(0,255,0,0.1) 0%, transparent 100%);
+            border-bottom: 2px solid #00ff00;
+            border-left: 6px solid #00ff00;
+            padding: 2.5rem 2rem;
+            padding-left: 3rem;
         }
 
         header h1 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: bold;
-            letter-spacing: 0.3em;
+            letter-spacing: 0.4em;
             text-transform: uppercase;
             margin-bottom: 0.5rem;
             color: #00ff00;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
         }
 
         header p {
             font-size: 0.75rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: #888;
+            color: #00aa00;
         }
 
         nav {
-            border-bottom: 2px dashed #00ff00;
-            background-color: #000000;
+            background: linear-gradient(90deg, rgba(0,255,0,0.05) 0%, transparent 100%);
+            border-bottom: 1px solid rgba(0,255,0,0.3);
             display: flex;
-            gap: 1rem;
+            gap: 3rem;
             padding: 0 2rem;
+            padding-left: 3rem;
             position: sticky;
             top: 0;
             z-index: 40;
@@ -61,33 +64,45 @@
         }
 
         nav button {
-            background-color: #ffff00;
-            border: 2px solid #ffff00;
-            color: #000000;
-            padding: 0.5rem 1rem;
+            background-color: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: #00aa00;
+            padding: 1.2rem 0;
             cursor: pointer;
             font-family: 'Courier Prime', monospace;
-            font-size: 0.7rem;
+            font-size: 0.85rem;
             font-weight: bold;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             transition: all 0.3s ease;
-            position: relative;
-            margin: 0.75rem 0;
         }
 
-        nav button:hover,
+        nav button:hover {
+            color: #00ff00;
+            border-bottom-color: rgba(0, 255, 0, 0.5);
+        }
+
         nav button.active {
-            background-color: #ffff00;
-            box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+            border-bottom-color: #00ff00;
+            color: #00ff00;
+            text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
         }
 
         main {
             flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
             padding: 2rem;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             width: 100%;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
         }
 
         .content-section {
@@ -98,13 +113,58 @@
             display: block;
         }
 
+        .sidebar {
+            background: linear-gradient(180deg, rgba(0,255,0,0.08) 0%, rgba(0,255,0,0.02) 100%);
+            border-left: 3px solid #00ff00;
+            border-top: 3px solid #00ff00;
+            padding: 2rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #00aa00;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .sidebar-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+        }
+
+        .sidebar-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .sidebar-label {
+            font-size: 0.65rem;
+            color: #00aa00;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-value {
+            font-size: 0.8rem;
+            color: #00ff00;
+            font-weight: bold;
+        }
+
         .spawn-label {
             font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             font-weight: bold;
-            color: #00ff00;
-            margin-bottom: 0.5rem;
+            color: #00aa00;
+            margin-bottom: 1rem;
         }
 
         .section-title {
@@ -115,30 +175,36 @@
             margin-bottom: 1rem;
             color: #00ff00;
             letter-spacing: 0.1em;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
         }
 
         .section-description {
-            font-size: 0.8rem;
-            color: #888;
+            font-size: 0.9rem;
+            color: #00aa00;
             line-height: 1.8;
-            max-width: 700px;
-            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
         }
 
         .step {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(90deg, rgba(0,255,0,0.05) 0%, transparent 100%);
+            border-left: 3px solid #00ff00;
+            border-top: 1px solid rgba(0, 255, 0, 0.2);
         }
 
         .step-number {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: #00ff00;
             letter-spacing: 0.1em;
             margin-bottom: 0.5rem;
+            text-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
         }
 
         .step-title {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: bold;
             text-transform: uppercase;
             color: #00ff00;
@@ -147,27 +213,30 @@
         }
 
         .step-description {
-            font-size: 0.8rem;
-            color: #888;
+            font-size: 0.85rem;
+            color: #00aa00;
             margin-bottom: 1rem;
         }
 
         .step-command {
-            border: 2px dashed #00ff00;
+            border-left: 3px solid #00ff00;
             padding: 1rem;
+            padding-left: 1.5rem;
             margin-bottom: 1rem;
-            background-color: #000000;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(0, 255, 0, 0.2);
         }
 
         .command {
             font-family: 'Courier Prime', monospace;
             font-size: 0.85rem;
             color: #00ff00;
+            font-weight: bold;
         }
 
         .step-details {
-            font-size: 0.75rem;
-            color: #888;
+            font-size: 0.8rem;
+            color: #00aa00;
             margin-left: 1rem;
         }
 
@@ -177,15 +246,17 @@
         }
 
         .step-details li::before {
-            content: "• ";
+            content: "▸ ";
             color: #00ff00;
             margin-right: 0.5rem;
         }
 
         .resources-section {
-            border: 2px dashed #00ff00;
-            padding: 1.5rem;
+            border-left: 3px solid #00ff00;
+            border-top: 1px solid rgba(0, 255, 0, 0.2);
+            padding: 2rem;
             margin-top: 2rem;
+            background: linear-gradient(90deg, rgba(0,255,0,0.05) 0%, transparent 100%);
         }
 
         .resources-label {
@@ -193,22 +264,28 @@
             text-transform: uppercase;
             letter-spacing: 0.2em;
             font-weight: bold;
-            color: #00ff00;
-            margin-bottom: 1rem;
+            color: #00aa00;
+            margin-bottom: 1.5rem;
         }
 
         .resources-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1rem;
             position: relative;
         }
 
         .resource-item {
-            border: 2px dashed #ffff00;
-            padding: 0.75rem;
-            background-color: rgba(255, 255, 0, 0.05);
-            position: relative;
+            border-left: 2px solid #00ff00;
+            padding: 1rem;
+            padding-left: 1.5rem;
+            background: rgba(0, 255, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        .resource-item:hover {
+            background: rgba(0, 255, 0, 0.08);
+            border-left-color: #00ff00;
         }
 
         .resource-link {
@@ -217,21 +294,35 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            transition: all 0.3s ease;
         }
 
         .resource-link:hover {
-            text-decoration: underline;
+            color: #00ff00;
+            text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
         }
 
         footer {
-            border-top: 2px dashed #ff0000;
-            background-color: #000000;
+            border-top: 2px solid #00ff00;
+            border-left: 6px solid #00ff00;
+            background: linear-gradient(90deg, rgba(0,255,0,0.1) 0%, transparent 100%);
             padding: 2rem;
-            text-align: center;
+            padding-left: 3rem;
+            text-align: left;
             font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: #888;
+            color: #00aa00;
+        }
+
+        @media (max-width: 1024px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
         }
 
         @media (max-width: 768px) {
@@ -239,161 +330,194 @@
                 padding: 1rem;
             }
 
+            header {
+                padding: 1.5rem 1rem;
+                padding-left: 1.5rem;
+            }
+
+            nav {
+                padding: 0 1rem;
+                padding-left: 1.5rem;
+                gap: 1.5rem;
+            }
+
             .section-title {
                 font-size: 1.5rem;
             }
 
-            nav {
-                gap: 0.5rem;
-            }
-
-            nav button {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.65rem;
+            .step {
+                padding: 1rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>[ DACTYCLAW ]</h1>
+        <h1>DACTYCLAW</h1>
         <p>Agent Monitor & Deployer for Clawn Ecosystem</p>
     </header>
 
     <nav>
-        <button data-tab="deploy" class="nav-btn active">[ DEPLOY ]</button>
-        <button data-tab="docs" class="nav-btn">[ DOCS ]</button>
+        <button data-tab="deploy" class="nav-btn active">Deploy</button>
+        <button data-tab="docs" class="nav-btn">Documentation</button>
     </nav>
 
     <main>
-        <!-- DEPLOY Section -->
-        <div id="deploy" class="content-section active">
-            <div class="spawn-label">SPAWN</div>
-            <h2 class="section-title">become an<br>operator</h2>
-            <p class="section-description">
-                one command. your agent gets a name, DNA, wallet, and private key. launch your token on Base. 80% of token fees fund your agent.
-            </p>
+        <div class="content-wrapper">
+            <!-- DEPLOY Section -->
+            <div id="deploy" class="content-section active">
+                <div class="spawn-label">Getting Started</div>
+                <h2 class="section-title">Become an Operator</h2>
+                <p class="section-description">
+                    One command. Your agent gets a name, DNA, wallet, and private key. Launch your token on Base. 80% of token fees fund your agent.
+                </p>
 
-            <div class="step">
-                <div class="step-number">01</div>
-                <div class="step-title">Create an Agent</div>
-                <div class="step-description">Initialize your AI agent with DACTYCLAW.</div>
-                <div class="step-command">
-                    <div class="command">$ npx dacty-create</div>
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-title">Create an Agent</div>
+                    <div class="step-description">Initialize your AI agent with DACTYCLAW.</div>
+                    <div class="step-command">
+                        <div class="command">$ npx dacty-create</div>
+                    </div>
+                    <ul class="step-details">
+                        <li>Agent receives unique DNA signature</li>
+                        <li>Wallet address automatically generated</li>
+                    </ul>
                 </div>
-                <ul class="step-details">
-                    <li>Agent receives unique DNA signature</li>
-                    <li>Wallet address automatically generated</li>
-                </ul>
+
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-title">Launch Token</div>
+                    <div class="step-description">Deploy your token on Base network via Clanker.</div>
+                    <div class="step-command">
+                        <div class="command">$ npx dacty-launch</div>
+                    </div>
+                    <ul class="step-details">
+                        <li>Input token name and symbol</li>
+                        <li>Deploy to Base network</li>
+                    </ul>
+                </div>
+
+                <div class="resources-section">
+                    <div class="resources-label">Resources</div>
+                    <div class="resources-grid">
+                        <div class="resource-item">
+                            <a href="#docs" class="resource-link">Documentation</a>
+                        </div>
+                        <div class="resource-item">
+                            <a href="#" class="resource-link">Token Explorer</a>
+                        </div>
+                        <div class="resource-item">
+                            <a href="https://github.com/dactyclaw/dactyclaw" target="_blank" class="resource-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="step">
-                <div class="step-number">02</div>
-                <div class="step-title">Launch Token</div>
-                <div class="step-description">Deploy your token on Base network via Clanker.</div>
-                <div class="step-command">
-                    <div class="command">$ npx dacty-launch</div>
-                </div>
-                <ul class="step-details">
-                    <li>Input token name and symbol</li>
-                    <li>Deploy to Base network</li>
-                </ul>
-            </div>
+            <!-- DOCS Section -->
+            <div id="docs" class="content-section">
+                <div class="spawn-label">Complete Guide</div>
+                <h2 class="section-title">Documentation</h2>
+                <p class="section-description">
+                    Complete guide to creating, launching, and managing your AI agents on Base network.
+                </p>
 
-            <div class="resources-section">
-                <div class="resources-label">[ RESOURCES ]</div>
-                <div class="resources-grid">
-                    <div class="resource-item">
-                        <a href="#docs" class="resource-link">→ Documentation</a>
+                <div class="step">
+                    <div class="step-title">Quick Start</div>
+                    <div class="step-description">Get up and running in 2 commands</div>
+                    <div class="step-command">
+                        <div class="command">$ npx dacty-create && npx dacty-launch</div>
                     </div>
-                    <div class="resource-item">
-                        <a href="#" class="resource-link">→ Token Explorer</a>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">Core Concepts</div>
+                    <ul class="step-details">
+                        <li><strong>Agent DNA:</strong> Unique identifier for your agent</li>
+                        <li><strong>Wallet:</strong> Autonomous wallet for token management</li>
+                        <li><strong>Private Key:</strong> Secure access to agent operations</li>
+                        <li><strong>Fee Distribution:</strong> Automatic earnings from trades</li>
+                        <li><strong>Base Network:</strong> Ethereum Layer 2 for fast, low-cost launches</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">Step-by-Step Guide</div>
+                    <div class="step-description">Detailed walkthrough of the entire process</div>
+                    <ul class="step-details">
+                        <li>Install DACTYCLAW CLI</li>
+                        <li>Create your agent with custom name</li>
+                        <li>Configure token parameters</li>
+                        <li>Deploy to Base network</li>
+                        <li>Monitor agent performance</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">CLI Commands</div>
+                    <div class="step-command">
+                        <div class="command">$ npx dacty-create [name]</div>
+                        <div style="color: #00aa00; font-size: 0.75rem; margin-top: 0.5rem;">Create a new agent</div>
                     </div>
-                    <div class="resource-item">
-                        <a href="https://github.com/dactyclaw/datcyclaw" target="_blank" class="resource-link">→ GitHub Repository</a>
+                    <div class="step-command">
+                        <div class="command">$ npx dacty-launch</div>
+                        <div style="color: #00aa00; font-size: 0.75rem; margin-top: 0.5rem;">Launch token on Base</div>
                     </div>
+                    <div class="step-command">
+                        <div class="command">$ npx dacty-status</div>
+                        <div style="color: #00aa00; font-size: 0.75rem; margin-top: 0.5rem;">Check agent status</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">Security Guidelines</div>
+                    <ul class="step-details">
+                        <li>Never share your agent's private key</li>
+                        <li>Keep your wallet secure</li>
+                        <li>Verify contract addresses before deployment</li>
+                        <li>Monitor agent activity regularly</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">Troubleshooting</div>
+                    <ul class="step-details">
+                        <li>Deployment failed? Check Base network connection</li>
+                        <li>Agent not responding? Verify wallet balance</li>
+                        <li>Token not trading? Check Clanker listing</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <!-- DOCS Section -->
-        <div id="docs" class="content-section">
-            <div class="spawn-label">GUIDE</div>
-            <h2 class="section-title">Documentation</h2>
-            <p class="section-description">
-                Complete guide to creating, launching, and managing your AI agents on Base network.
-            </p>
-
-            <div class="step">
-                <div class="step-title">Quick Start</div>
-                <div class="step-description">Get up and running in 2 commands</div>
-                <div class="step-command">
-                    <div class="command">$ npx dacty-create && npx dacty-launch</div>
-                </div>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-title">Status</div>
+            
+            <div class="sidebar-item">
+                <div class="sidebar-label">Network</div>
+                <div class="sidebar-value">Base Mainnet</div>
             </div>
 
-            <div class="step">
-                <div class="step-title">Core Concepts</div>
-                <ul class="step-details">
-                    <li><strong>Agent DNA:</strong> Unique identifier for your agent</li>
-                    <li><strong>Wallet:</strong> Autonomous wallet for token management</li>
-                    <li><strong>Private Key:</strong> Secure access to agent operations</li>
-                    <li><strong>Fee Distribution:</strong> Automatic earnings from trades</li>
-                    <li><strong>Base Network:</strong> Ethereum Layer 2 for fast, low-cost launches</li>
-                </ul>
+            <div class="sidebar-item">
+                <div class="sidebar-label">Version</div>
+                <div class="sidebar-value">v2.2</div>
             </div>
 
-            <div class="step">
-                <div class="step-title">Step-by-Step Guide</div>
-                <div class="step-description">Detailed walkthrough of the entire process</div>
-                <ul class="step-details">
-                    <li>Install DACTYCLAW CLI</li>
-                    <li>Create your agent with custom name</li>
-                    <li>Configure token parameters</li>
-                    <li>Deploy to Base network</li>
-                    <li>Monitor agent performance</li>
-                </ul>
+            <div class="sidebar-item">
+                <div class="sidebar-label">Status</div>
+                <div class="sidebar-value">Active</div>
             </div>
 
-            <div class="step">
-                <div class="step-title">CLI Commands</div>
-                <div class="step-command">
-                    <div class="command">$ npx dacty-create [name]</div>
-                    <div style="color: #888; font-size: 0.75rem; margin-top: 0.5rem;">Create a new agent</div>
-                </div>
-                <div class="step-command">
-                    <div class="command">$ npx dacty-launch</div>
-                    <div style="color: #888; font-size: 0.75rem; margin-top: 0.5rem;">Launch token on Base</div>
-                </div>
-                <div class="step-command">
-                    <div class="command">$ npx dacty-status</div>
-                    <div style="color: #888; font-size: 0.75rem; margin-top: 0.5rem;">Check agent status</div>
-                </div>
+            <div class="sidebar-item">
+                <div class="sidebar-label">Fee Split</div>
+                <div class="sidebar-value">80% / 20%</div>
             </div>
-
-            <div class="step">
-                <div class="step-title">Security Guidelines</div>
-                <ul class="step-details">
-                    <li>Never share your agent's private key</li>
-                    <li>Keep your wallet secure</li>
-                    <li>Verify contract addresses before deployment</li>
-                    <li>Monitor agent activity regularly</li>
-                </ul>
-            </div>
-
-            <div class="step">
-                <div class="step-title">Troubleshooting</div>
-                <ul class="step-details">
-                    <li>Deployment failed? Check Base network connection</li>
-                    <li>Agent not responding? Verify wallet balance</li>
-                    <li>Token not trading? Check Clanker listing</li>
-                </ul>
-            </div>
-        </div>
+        </aside>
     </main>
 
     <footer>
-        [ DACTYCLAW v2.2 ] — Live Agent Infrastructure for Clawn Ecosystem on Base
+        DACTYCLAW v2.2 — Live Agent Infrastructure for Clawn Ecosystem on Base
     </footer>
 
     <script>
