@@ -162,6 +162,49 @@ program
                 txHash: deployResult.txHash
             };
             fs.writeFileSync(agentJsonPath, JSON.stringify(agentData, null, 2));
+
+            // [Dactyclaw Database Sync] - Push Directly to Live Agents Monitor
+            try {
+                const binId = '69a2ff58d0ea881f40e21084';
+                const apiKey = '$2a$10$52cNICm.70qXCx0qkKBG5erLYGg1HMceR1gT4OOPOe5uzCiAJShOG';
+
+                // 1. GET current
+                const resGet = await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+                    headers: { 'X-Master-Key': apiKey }
+                });
+
+                let currentData = [];
+                if (resGet.ok) {
+                    const parsed = await resGet.json();
+                    currentData = parsed.record || [];
+                }
+
+                // Append new agent token payload
+                currentData.push({
+                    symbol: ticker,
+                    name: name,
+                    agent: `4claw_anon_thread:${dnaId.substring(0, 4)}`,
+                    launchedAt: Date.now(),
+                    clanker_url: `https://clanker.world/clanker/${resultContract.address}`,
+                    explorer_url: `https://basescan.org/token/${resultContract.address}`,
+                    address: resultContract.address,
+                    source: '4claw' // For backwards compatibility logic
+                });
+
+                // 2. PUT updated array
+                await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': apiKey
+                    },
+                    body: JSON.stringify(currentData)
+                });
+
+                console.log(`📡 Satellite Sync: Agent deployed to Global Dactyclaw Terminal.`);
+            } catch (e) {
+                // Silently ignore ping errors so as not to ruin user CLI experience
+            }
         }
 
         console.log(`\nYour Agent ${name} is fully materialized.`);
