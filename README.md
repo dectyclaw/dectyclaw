@@ -21,7 +21,6 @@ Dactyclaw is a powerful, self-sustaining process and full-stack web interface de
 Getting started with Dactyclaw is incredibly simple. You only need one command to initiate the autonomous orchestration process:
 
 ```bash
-# Launch the Interactive Process for Auto-Agent Generation & Contract Deployment
 $ npx dactyclaw
 ```
 
