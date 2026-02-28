@@ -1,12 +1,11 @@
 {
   "name": "dactyclaw",
-  "version": "1.3.4",
+  "version": "1.4.0",
   "description": "**Agent Monitor & Deployer for Clawn Ecosystem on Base**",
   "main": "proxy.js",
   "bin": {
-    "dacty-create": "bin/dacty-create.js",
-    "dacty-launch": "bin/dacty-launch.js",
-    "dactyclaw": "bin/dacty-create.js"
+    "dacty-create": "bin/dactyclaw.js",
+    "dactyclaw": "bin/dactyclaw.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
