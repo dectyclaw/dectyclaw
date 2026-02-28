@@ -141,7 +141,7 @@ program
 
         if (deployResult.error) {
             console.error(`\n❌ Deployment Failed: ${deployResult.error.shortMessage || deployResult.error.message || 'Smart Contract Error'}`);
-            fs.writeFileSync(path.join(agentDir, 'error_launch.log'), JSON.stringify(deployResult, null, 2));
+            fs.writeFileSync(path.join(agentDir, 'error_launch.log'), JSON.stringify(deployResult, (key, value) => typeof value === 'bigint' ? value.toString() + 'n' : value, 2));
             process.exit(1);
         }
 
