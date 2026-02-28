@@ -45,21 +45,6 @@ The entire process is non-interactive after the initial command execution.
 
 ---
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Getting Started](#getting-started)
-- [Key Features](#key-features)
-- [Architecture](#architecture)
-- [CLI Reference](#cli-reference)
-- [Web Dashboard](#web-dashboard)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [Resources](#resources)
-- [License](#license)
-
----
-
 ## Key Features
 
 | Feature | Description |
@@ -67,10 +52,9 @@ The entire process is non-interactive after the initial command execution.
 | **One-Command Deployment** | Launch the full orchestration process with a single `npx dactyclaw` command. |
 | **Autonomous Agent Lifecycle** | Automatic DNA generation, wallet provisioning, balance monitoring, and contract deployment. |
 | **Base Mainnet Native** | Direct ERC-20 token deployment on Base via Clanker smart contracts. |
-| **Serverless Agent Tracking** | All deployed agents are logged to an independent JSONBin database in real-time. |
+| **Serverless Agent Tracking** | All deployed agents are logged to an independent serverless database in real-time. |
 | **Live Web Dashboard** | Terminal-themed responsive UI with live leaderboard, agent feed, and deployment documentation. |
 | **Self-Funding Loop** | Continuous balance polling with automatic deployment trigger once funding threshold is met. |
-| **CORS Proxy Router** | Built-in local proxy server for secure API communication without exposing credentials. |
 
 ---
 
@@ -88,10 +72,8 @@ Dactyclaw follows a modular architecture consisting of three primary layers:
 └─────────────────────┬───────────────────────────────────┘
                       │
 ┌─────────────────────▼───────────────────────────────────┐
-│                   Proxy Router                          │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
-│  │  /api/tokens │  │ /api/agents  │  │   CORS HDR   │  │
-│  └──────────────┘  └──────────────┘  └──────────────┘  │
+│                  Secure API Layer                        │
+│        Handles routing and credential isolation          │
 └─────────────────────┬───────────────────────────────────┘
                       │
 ┌─────────────────────▼───────────────────────────────────┐
@@ -106,8 +88,8 @@ Dactyclaw follows a modular architecture consisting of three primary layers:
 **Data Flow:**
 1. The CLI Orchestrator generates agent credentials and monitors wallet balances.
 2. Upon receiving sufficient ETH, the orchestrator triggers Clanker contract deployment.
-3. Deployment metadata is pushed to JSONBin (serverless database).
-4. The Proxy Router securely serves data to the Web Dashboard.
+3. Deployment metadata is pushed to the serverless tracking database.
+4. The Secure API Layer routes data to the Web Dashboard without exposing credentials.
 5. The Web Dashboard renders live agent feeds and leaderboard data.
 
 ---
@@ -153,20 +135,23 @@ The Dactyclaw web interface is a fully responsive, terminal-themed dashboard bui
 
 ---
 
-## Project Structure
+## Supported Networks
 
-```
-dactyclaw/
-├── index.html          # Web dashboard (single-page application)
-├── proxy.js            # CORS proxy router for API endpoints
-├── package.json        # NPM package configuration and dependencies
-├── bin/
-│   ├── dactyclaw.js    # Main CLI orchestrator (autonomous deployment loop)
-│   ├── dacty-create.js # Agent DNA and wallet generator
-│   └── dacty-launch.js # Token deployment executor
-├── .gitignore          # Git exclusion rules
-└── README.md           # This file
-```
+| Network | Status | Token Standard |
+|---|---|---|
+| **Base Mainnet** | Live | ERC-20 |
+
+Dactyclaw is purpose-built for the Base network. All contract deployments, wallet provisioning, and balance monitoring operate exclusively on Base Mainnet through the Clanker deployment infrastructure.
+
+---
+
+## Security
+
+Dactyclaw is designed with security as a first-class concern:
+
+- **Local Key Storage** — All private keys and wallet credentials are generated and stored locally on your machine. They are never transmitted to external servers.
+- **Credential Isolation** — API keys and authentication tokens are managed through environment variables and are never committed to version control.
+- **Non-Custodial** — Dactyclaw does not hold, manage, or have access to user funds. Wallet interactions are executed directly on-chain.
 
 ---
 
