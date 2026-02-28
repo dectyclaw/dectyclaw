@@ -39,7 +39,7 @@ program
         console.log(`\n⚠️  Private key saved to .env (DO NOT COMMIT THIS FILE)`);
         console.log(`📄  Agent config saved to agent.json`);
         console.log(`\n💳 FUNDING REQUIRED:`);
-        console.log(`   Please send at least 0.0005 ETH (Base) to the Agent Wallet:`);
+        console.log(`   Please send at least 0.001 ETH (Base) to the Agent Wallet:`);
         console.log(`   ${wallet.address}`);
         console.log(`\nNext step: Run 'npx dacty-launch' to auto-deploy token on Base`);
     });
