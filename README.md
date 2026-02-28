@@ -153,20 +153,6 @@ The Dactyclaw web interface is a fully responsive, terminal-themed dashboard bui
 | **Deploy** | Interactive documentation with deployment commands and configuration guides. |
 | **Docs** | Complete CLI reference, architecture documentation, and external resource links. |
 
-### Running Locally
-
-To run the dashboard on your local machine:
-
-```bash
-# Start the CORS proxy router
-node proxy.js
-
-# In a separate terminal, serve the static files
-npx http-server -p 8089
-```
-
-Then open `http://127.0.0.1:8089` in your browser.
-
 ---
 
 ## Configuration
