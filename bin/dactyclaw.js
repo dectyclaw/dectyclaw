@@ -130,8 +130,7 @@ program
             image: "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi",
             metadata: { description: description || "Deployed via Dactyclaw Seamless CLI", socialMediaUrls: [], auditUrls: [] },
             context: { interface: "Dactyl", platform: "Dactyl", messageId: dnaId, id: ticker },
-            pool: { pairedToken: "WETH", positions: ROOT_POS_V4.Standard },
-            vault: { percentage: 0, lockupDuration: 604800 }
+            pool: { pairedToken: "WETH", initialMarketCap: "0.2", positions: ROOT_POS_V4.Standard }
         };
 
         console.log(`[1/3] Compiling Factory Payload...`);
