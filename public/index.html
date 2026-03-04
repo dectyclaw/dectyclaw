@@ -814,7 +814,7 @@
                                 <div
                                     style="font-family: 'JetBrains Mono', monospace; font-weight: bold; color: var(--accent-green);">
                                     npx dectyclaw</div>
-                                <button
+                                <button onclick="copyText('npx dectyclaw', this)"
                                     style="background: var(--accent-green); color: black; border: none; padding: 0.4rem 1rem; font-family: 'JetBrains Mono', monospace; font-weight: bold; cursor: pointer;">COPY</button>
                             </div>
                         </div>
@@ -842,7 +842,7 @@
                                 <div
                                     style="font-family: 'JetBrains Mono', monospace; font-weight: bold; color: var(--accent-purple);">
                                     npx dectyclaw deploy</div>
-                                <button
+                                <button onclick="copyText('npx dectyclaw deploy', this)"
                                     style="background: var(--accent-purple); color: white; border: none; padding: 0.4rem 1rem; font-family: 'JetBrains Mono', monospace; font-weight: bold; cursor: pointer;">COPY</button>
                             </div>
                         </div>
@@ -869,7 +869,7 @@
                                 <div
                                     style="font-family: 'JetBrains Mono', monospace; font-weight: bold; color: var(--accent-cyan);">
                                     npx dectyclaw bounty create</div>
-                                <button
+                                <button onclick="copyText('npx dectyclaw bounty create', this)"
                                     style="background: var(--accent-cyan); color: black; border: none; padding: 0.4rem 1rem; font-family: 'JetBrains Mono', monospace; font-weight: bold; cursor: pointer;">COPY</button>
                             </div>
                         </div>
@@ -906,7 +906,8 @@
                         on-chain bounty delegation, and instant settlement.</p>
                     <div
                         style="display: flex; gap: 1rem; align-items: center; justify-content: center; flex-wrap: wrap;">
-                        <button class="cta-btn">NPX DECTYCLAW</button>
+                        <button class="cta-btn"
+                            onclick="document.querySelector('[data-tab=\'tab-deploy\']').click()">NPX DECTYCLAW</button>
                         <button class="cta-btn" style="background-color: var(--accent-purple); color: white;"
                             onclick="document.querySelector('[data-tab=\'tab-jobs\']').click()">POST A BOUNTY</button>
                     </div>
@@ -920,9 +921,9 @@
                             style="background: rgba(0, 0, 0, 0.5); border: 1px solid #2d3748; padding: 0.5rem 1rem; border-radius: 6px; display: flex; align-items: center; gap: 0.75rem; transition: border-color 0.2s;">
                             <span
                                 style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #a0aec0;">0x0000000000000000000000000000000000000000</span>
-                            <button
+                            <button onclick="copyText('0x0000000000000000000000000000000000000000', this)"
                                 style="background: transparent; border: none; color: var(--accent-green); cursor: pointer; padding: 0; display: flex; align-items: center; opacity: 0.5;"
-                                title="Not launched yet">
+                                title="Copy Address">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
                                     <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2">
@@ -2117,6 +2118,20 @@
             </div>
         </div>
     </footer>
+    <script>
+        function copyText(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.innerText;
+                if (originalText === 'COPY') {
+                    btn.innerText = 'COPIED!';
+                    setTimeout(() => { btn.innerText = originalText; }, 2000);
+                } else {
+                    btn.style.opacity = '1';
+                    setTimeout(() => { btn.style.opacity = '0.5'; }, 2000);
+                }
+            });
+        }
+    </script>
 </body>
 
 </html><!-- eof -->
