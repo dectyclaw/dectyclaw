@@ -1985,17 +1985,23 @@
                     timeStr = d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], { hour12: false });
                 }
 
-                // Matching schema keys from Dectyclaw CLI: name, ticker, dnaId, feeWallet, token(address, txHash)
+                // Matching schema keys from Dectyclaw CLI: name, ticker, dnaId, token (nested) OR symbol/address (flat from CLI sync)
                 const agentName = agent.name || 'DECTYCLAW Node';
-                const tokenSymbol = agent.ticker || '???';
-                const dnaId = agent.dnaId ? agent.dnaId.substring(0, 8) : 'GENESIS';
+                const tokenSymbol = agent.ticker || agent.symbol || '???';
+                const dnaId = agent.dnaId ? agent.dnaId.substring(0, 8) : (agent.agent ? agent.agent.split(':')[0] : 'GENESIS');
 
-                const hasToken = agent.token && agent.token.address;
-                const tokenAddr = hasToken ? agent.token.address : '';
+                // Support both nested { token: { address } } and flat { address } formats
+                const hasToken = (agent.token && agent.token.address) || agent.address;
+                const tokenAddr = hasToken ? (agent.token ? agent.token.address : agent.address) : '';
                 const txHash = (agent.token && agent.token.txHash) ? agent.token.txHash : '';
 
-                const clankerLink = hasToken ? `https://clanker.world/clanker/${tokenAddr}` : '#';
-                const explorerLink = txHash ? `https://basescan.org/tx/${txHash}` : (hasToken ? `https://basescan.org/token/${tokenAddr}` : '#');
+                const explorerLink = tokenAddr ? `https://dexscreener.com/base/${tokenAddr}` : '#';
+                const basescanLink = txHash ? `https://basescan.org/tx/${txHash}` : (tokenAddr ? `https://basescan.org/token/${tokenAddr}` : '#');
+
+                // Timestamp from CLI flat format uses launchedAt (ms), nested uses createdAt
+                if (!agent.createdAt && agent.launchedAt) {
+                    agent.createdAt = new Date(agent.launchedAt).toISOString();
+                }
 
                 // Color derivation based on DNA or Name
                 const colorSeed = agentName.length + tokenSymbol.length;
@@ -2033,8 +2039,8 @@
                         </div>
                         ${hasToken ? `
                         <div style="display: flex; gap: 0.75rem;">
-                            <a href="${escHtml(clankerLink)}" target="_blank" class="action-link" style="padding: 0.4rem 0.8rem; font-size: 0.85rem; background: #fff;">Trade Token</a>
-                            <a href="${escHtml(explorerLink)}" target="_blank" class="action-link" style="padding: 0.4rem 0.8rem; font-size: 0.85rem; background: #e2e8f0;">Verify TX</a>
+                            <a href="${escHtml(explorerLink)}" target="_blank" class="action-link" style="padding: 0.4rem 0.8rem; font-size: 0.85rem; background: #fff;">Trade Token</a>
+                            <a href="${escHtml(basescanLink)}" target="_blank" class="action-link" style="padding: 0.4rem 0.8rem; font-size: 0.85rem; background: #e2e8f0;">Verify TX</a>
                         </div>
                         ` : `
                         <div style="color: #e53e3e; font-weight: bold; font-size: 0.85rem;">Pending Deployment...</div>
