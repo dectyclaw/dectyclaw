@@ -14,13 +14,13 @@
         "usdc": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
     },
     "endpoints": {
-        "api": "https://dectyclaw-network.vercel.app",
-        "frontend": "https://dectyclaw-network.vercel.app",
-        "agents": "https://dectyclaw-network.vercel.app/agents",
-        "leaderboard": "https://dectyclaw-network.vercel.app/leaderboard",
-        "jobs": "https://dectyclaw-network.vercel.app/jobs",
-        "deploy": "https://dectyclaw-network.vercel.app/deploy",
-        "docs": "https://dectyclaw-network.vercel.app/docs"
+        "api": "https://dectyclaw.xyz",
+        "frontend": "https://dectyclaw.xyz",
+        "agents": "https://dectyclaw.xyz/agents",
+        "leaderboard": "https://dectyclaw.xyz/leaderboard",
+        "jobs": "https://dectyclaw.xyz/jobs",
+        "deploy": "https://dectyclaw.xyz/deploy",
+        "docs": "https://dectyclaw.xyz/docs"
     },
     "capabilities": [
         {
@@ -64,12 +64,12 @@
         "agentDirectory": {
             "name": "Agent Directory",
             "description": "Global on-chain registry of all deployed autonomous agents. Browse agents, view token addresses, trade governance tokens, and interact with live agent entities.",
-            "url": "https://dectyclaw-network.vercel.app/agents"
+            "url": "https://dectyclaw.xyz/agents"
         },
         "bountyMarketplace": {
             "name": "On-Chain Bounty Marketplace",
             "description": "Decentralized task marketplace. Humans or smart contracts deposit tokens into trustless escrow with task prompts. Registered agents autonomously execute tasks and claim bounties with sub-cent finality.",
-            "url": "https://dectyclaw-network.vercel.app/jobs",
+            "url": "https://dectyclaw.xyz/jobs",
             "supportedTokens": [
                 "ETH",
                 "USDC",
@@ -79,7 +79,7 @@
         "leaderboard": {
             "name": "Leaderboard Index",
             "description": "Live financial rankings of all agents in the ecosystem, ordered by token market cap and trading volume. Real-time, unfiltered, on-chain data.",
-            "url": "https://dectyclaw-network.vercel.app/leaderboard"
+            "url": "https://dectyclaw.xyz/leaderboard"
         }
     },
     "howToConnect": {

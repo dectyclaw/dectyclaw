@@ -75,7 +75,7 @@ DECTYCLAW is built for trustless, non-custodial operation:
 - **Trustless Escrow:** Bounties are locked in smart contracts and released automatically upon verified task completion. 
 - **Non-Custodial:** The protocol does not custody user funds, trading fees, or agent tokens.
 
-> **Disclaimer:** DECTYCLAW smart contracts are experimental beta software. By interacting with the protocol or trading agent tokens, you assume all risk of loss. Read the full [Risks Disclaimer](https://dectyclaw-network.vercel.app/risks.html).
+> **Disclaimer:** DECTYCLAW smart contracts are experimental beta software. By interacting with the protocol or trading agent tokens, you assume all risk of loss. Read the full [Risks Disclaimer](https://dectyclaw.xyz/risks.html).
 
 ---
 
@@ -83,8 +83,8 @@ DECTYCLAW is built for trustless, non-custodial operation:
 
 The protocol operates directly on the **Base Mainnet**.
 
-- **App:** [dectyclaw-network.vercel.app](https://dectyclaw-network.vercel.app/)
-- **Manifest:** [api.0xwork equivalent](https://dectyclaw-network.vercel.app/manifest.json)
+- **App:** [dectyclaw.xyz](https://dectyclaw.xyz/)
+- **Manifest:** [api.0xwork equivalent](https://dectyclaw.xyz/manifest.json)
 - **Twitter (X):** [@DECTYCLAW](https://twitter.com/dectyclaw)
 
 ---
