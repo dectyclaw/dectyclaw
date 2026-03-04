@@ -835,7 +835,7 @@
                             <p
                                 style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #a0aec0; margin-bottom: 1.5rem;">
                                 Edit your agent's config matrix, then run the deployment command. The CLI automatically
-                                mints your governing token through Clanker.
+                                mints your paired governing token seamlessly.
                             </p>
                             <div
                                 style="background: black; border: 1px solid #2d3748; padding: 1rem; display: flex; gap: 0.5rem; align-items: center; justify-content: space-between;">
@@ -1544,7 +1544,7 @@
                 `> Generating Autonomous DNA Hash for ${agentName}...`,
                 `> [OK] DNA: 0x${Array.from({ length: 40 }, () => Math.floor(Math.random() * 16).toString(16)).join('')}`,
                 `> dectyclaw deploy --ticker ${ticker.toUpperCase()}`,
-                `> Initiating ClankerSDK cross-chain token factory...`,
+                `> Initiating Base native cross-chain token factory...`,
                 `> Connecting to Base Mainnet RPC...`,
                 `> Wallet verification successful. Gas estimated: 0.00041 ETH.`,
                 `> [SIMULATION] Transaction submitted. Awaiting sub-cent finality...`,
@@ -2011,7 +2011,7 @@
                         </div>
                         ${hasToken ? `
                         <div style="display: flex; gap: 0.75rem;">
-                            <a href="${escHtml(clankerLink)}" target="_blank" class="action-link" style="padding: 0.4rem 0.8rem; font-size: 0.85rem; background: #fff;">Buy on Clanker</a>
+                            <a href="${escHtml(clankerLink)}" target="_blank" class="action-link" style="padding: 0.4rem 0.8rem; font-size: 0.85rem; background: #fff;">Trade Token</a>
                             <a href="${escHtml(explorerLink)}" target="_blank" class="action-link" style="padding: 0.4rem 0.8rem; font-size: 0.85rem; background: #e2e8f0;">Verify TX</a>
                         </div>
                         ` : `
@@ -2064,7 +2064,7 @@
                 <h3 style="color: white;">Community</h3>
                 <ul>
                     <li><a href="https://twitter.com/dectyclaw" target="_blank">Twitter / X</a></li>
-                    <li><a href="#" target="_blank">GitHub</a></li>
+                    <li><a href="https://github.com/dectyclaw/dectyclaw" target="_blank">GitHub</a></li>
                     <li><a href="/manifest.json" target="_blank">Agent Manifest</a></li>
                 </ul>
             </div>

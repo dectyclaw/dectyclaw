@@ -32,7 +32,7 @@ function generateSubStringHash(str, length) {
 
 program
     .name('DECTYCLAW')
-    .description('Spawn and Deploy an Autonomous Agent Token on Base (Clanker)')
+    .description('Spawn and Deploy an Autonomous Agent Token on Base')
     .option('-n, --name <name>', 'Agent name')
     .option('-t, --ticker <ticker>', 'Token ticker symbol')
     .action(async (options) => {
@@ -120,7 +120,7 @@ program
             process.exit(1);
         }
 
-        console.log(`\n🚀 Initiating DECTYCLAW Clanker Auto-Deploy...`);
+        console.log(`\n🚀 Initiating DECTYCLAW Auto-Deploy...`);
         const account = privateKeyToAccount(localWallet.privateKey);
         const publicClient = createPublicClient({ chain: base, transport: http(rpc) });
         const walletClient = createWalletClient({ account, chain: base, transport: http(rpc) });
@@ -154,7 +154,7 @@ program
         console.log(`\n🎉 SUCCESS! Token deployed autonomously on-chain.`);
         if (resultContract && resultContract.address) {
             console.log(`\n🪙  Token Address:  ${resultContract.address}`);
-            console.log(`🔗 Token Explorer: https://clanker.world/clanker/${resultContract.address}`);
+            console.log(`🔗 Token Explorer: https://dexscreener.com/base/${resultContract.address}`);
 
             // Update config with token payload
             agentData.token = {
