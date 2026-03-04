@@ -12,16 +12,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DECTYCLAW/DECTYCLAW.git"
+    "url": "git+https://github.com/dectyclaw/docs.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/DECTYCLAW/DECTYCLAW/issues"
+    "url": "https://github.com/dectyclaw/docs/issues"
   },
-  "homepage": "https://github.com/DECTYCLAW/DECTYCLAW#readme",
+  "homepage": "https://github.com/dectyclaw/docs#readme",
   "dependencies": {
     "axios": "^1.13.5",
     "clanker-sdk": "^4.2.10",
