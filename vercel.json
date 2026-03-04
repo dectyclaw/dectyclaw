@@ -1,0 +1,12 @@
+{
+    "rewrites": [
+        {
+            "source": "/api/clawnch/:path*",
+            "destination": "https://clawn.ch/api/:path*"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
+}

@@ -79,3 +79,4 @@ server.listen(PORT, () => {
     console.log(`CORS Proxy running on http://localhost:${PORT}`);
     console.log(`Example: http://localhost:${PORT}/api/count`);
 });
+// v2
