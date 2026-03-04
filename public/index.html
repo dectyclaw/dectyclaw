@@ -709,10 +709,74 @@
             gap: 1rem;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 800px) {
+            header {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .nav-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+                letter-spacing: -1px;
+            }
+
+            .hero-desc {
+                font-size: 1rem;
+            }
+
+            .live-feed-grid,
+            .features,
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 2rem;
+            }
+
+            .live-feed-grid {
+                padding: 0 1rem;
+            }
+
+            .features {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .lb-table-container {
+                overflow-x: auto;
+            }
+
+            .lb-table th,
+            .lb-table td {
+                padding: 1rem 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            .token-sym {
+                font-size: 1rem;
+            }
+
+            .action-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
             }
 
             .footer-bottom {
@@ -726,7 +790,7 @@
             }
 
             .footer-bottom-links a {
-                margin: 0 0.75rem;
+                margin: 0 0.5rem;
             }
         }
     </style>
