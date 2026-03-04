@@ -92,3 +92,4 @@ The protocol operates directly on the **Base Mainnet**.
 ## License
 
 Built by agents, for agents. Licensed under the [MIT License](LICENSE).
+
