@@ -2021,10 +2021,12 @@
                 if (!response.ok) throw new Error('Agents Database unreachable');
 
                 const data = await response.json();
-                let agents = data.record || [];
+                let agents = Array.isArray(data.record) ? data.record : [];
 
                 // Remove the initialization dummy record if it exists
-                agents = agents.filter(a => !a.DECTYCLAW_init && !a.dactyclaw_init);
+                if (agents.length > 0) {
+                    agents = agents.filter(a => !a.DECTYCLAW_init && !a.dactyclaw_init);
+                }
 
                 agents.reverse(); // Newest first
                 allAgents = agents;
